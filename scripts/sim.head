@@ -1,0 +1,26 @@
+#include "$OFFLINEEVENTLOOPMGRROOT/share/OfflineEventLoopMgr_Option.txt"
+
+//*************job options for generator (KKMC)***************
+#include "$KKMCROOT/share/jobOptions_KKMC.txt"
+KKMC.CMSEnergy = 3.90;
+KKMC.BeamEnergySpread=0.0008;
+KKMC.NumberOfEventPrinted=1;
+KKMC.GenerateJPsi=true;
+
+//*************job options for EvtGen***************
+//#include "$BESEVTGENROOT/share/BesEvtGen.txt"
+#include "$MANUALGENERATORROOT/share/ManualGenerator.txt"
+ManualGenerator.InputFile = "INPUT.dat";
+
+//**************job options for detector simulation******************
+#include "$BESSIMROOT/share/G4Svc_BesSim.txt"
+
+//configure for calibration constants
+#include "$CALIBSVCROOT/share/calibConfig_sim.txt"
+// run ID
+
+#include "$ROOTIOROOT/share/jobOptions_Digi2Root.txt"
+//RealizationSvc.RunIdList = {-11414,0,-13993,-14384, 0, -14604};
+RealizationSvc.RunIdList = {-52940,0,-54976};
+
+//**************job options for random number************************
