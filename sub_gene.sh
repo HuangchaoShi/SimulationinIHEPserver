@@ -1,4 +1,4 @@
-version=version1
+version=version2
 currentdir=`pwd`
 dirlay2=(touse tousp coule coulp breme bremp)
 for i in `seq 0 5`

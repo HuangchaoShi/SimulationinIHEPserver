@@ -1,11 +1,11 @@
-version=version1
+version=version2
 currentdir=`pwd`
-dirlay1=(Generate Run Plot InputData)
+dirlay1=(Generate Run EMCRun Plot InputData)
 dirlay2=(touse tousp coule coulp breme bremp)
 
 mkdir ${version}
 cd ${version}
-for i in `seq 0 3`
+for i in `seq 0 4`
 do
   mkdir ${dirlay1[i]}
 done 
@@ -14,6 +14,7 @@ for i in `seq 0 5`
 do 
   mkdir Generate/${dirlay2[i]}
   mkdir Run/${dirlay2[i]}
+  mkdir EMCRun/${dirlay2[i]}
 done
 
 #--------------------------------------
@@ -97,15 +98,40 @@ do
   for j in `seq 10`
   do
     cat ${currentdir}/scripts/run.head > job_${n}.txt
-    echo "${currentdir}/${version}/Generate/${dirlay2[i]}/r_${n}.rtraw" >> job_${n}.txt
+    echo \"${currentdir}/${version}/Generate/${dirlay2[i]}/r_${n}.rtraw\" >> job_${n}.txt
     cat ${currentdir}/scripts/run.mid >> job_${n}.txt
-    echo "${currentdir}/${version}/Generate/${dirlay2[i]}/d_${n}.dst" >> job_${n}.txt
+    echo \"${currentdir}/${version}/Generate/${dirlay2[i]}/d_${n}.dst\" >> job_${n}.txt
     cat ${currentdir}/scripts/run.foot >> job_${n}.txt 
     sed -i "s/hist.root/hist_${n}.root/g" job_${n}.txt
     sed -i "s/nt.root/nt_${n}.root/g"  job_${n}.txt
-    echo "boss.exe tous_job${n}.txt > tous_job${id}.txt.bosslog" >> sub.txt
+    echo "boss.exe job_${n}.txt > job_${n}.txt.bosslog" >> sub.txt
     let n++
   done
+  echo "rm -rf sub.txt.o*" >> sub.txt
+  echo "rm -rf sub.txt.e*" >> sub.txt
 done
 
-
+#-----------------------
+# make EMC run file
+#-----------------------
+for i in `seq 0 5`
+do
+  cd ${currentdir}/${version}/EMCRun/${dirlay2[i]}
+  echo "cd ${currentdir}/${version}/EMCRun/${dirlay2[i]}" > sub.txt
+  chmod 755 sub.txt
+  let n=100
+  for j in `seq 10`
+  do
+    cat ${currentdir}/scripts/runEMC/run.head > job_${n}.txt
+    echo \"${currentdir}/${version}/Generate/${dirlay2[i]}/r_${n}.rtraw\" >> job_${n}.txt
+    cat ${currentdir}/scripts/runEMC/run.mid >> job_${n}.txt
+    echo \"${currentdir}/${version}/Generate/${dirlay2[i]}/d_${n}.dst\" >> job_${n}.txt
+    cat ${currentdir}/scripts/runEMC/run.foot >> job_${n}.txt
+    sed -i "s/hist.root/hist_${n}.root/g" job_${n}.txt
+    sed -i "s/nt.root/nt_${n}.root/g"  job_${n}.txt
+    echo "boss.exe job_${n}.txt > job_${n}.txt.bosslog" >> sub.txt
+    let n++
+  done
+  echo "rm -rf sub.txt.o*" >> sub.txt
+  echo "rm -rf sub.txt.e*" >> sub.txt
+done
