@@ -1,9 +1,12 @@
-version=version2
+if [ -n "$1" ];then version=$1
+else version=version00
+fi
 currentdir=`pwd`
 dirlay2=(touse tousp coule coulp breme bremp)
 runMDC=true
 runEMC=true
 
+echo sub run $version
 if ( ${runMDC} );then
   for i in `seq 0 5`
   do

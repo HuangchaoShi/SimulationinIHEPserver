@@ -1,0 +1,4 @@
+};
+
+// Input REC or DST file name
+EventCnvSvc.digiRootInputFile = {

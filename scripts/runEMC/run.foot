@@ -1,0 +1,4 @@
+};
+ApplicationMgr.DLLs += { "RootHistCnv" };
+ApplicationMgr.HistogramPersistency = "ROOT";
+NTupleSvc.Output = { "FILE1 DATAFILE='nt.root' OPT='NEW' TYP='ROOT'"};

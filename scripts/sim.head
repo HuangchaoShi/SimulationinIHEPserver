@@ -14,6 +14,7 @@ ManualGenerator.InputFile = "INPUT.dat";
 
 //**************job options for detector simulation******************
 #include "$BESSIMROOT/share/G4Svc_BesSim.txt"
+BesSim.PipeSCM=1;
 
 //configure for calibration constants
 #include "$CALIBSVCROOT/share/calibConfig_sim.txt"

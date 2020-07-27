@@ -1,7 +1,11 @@
-version=version2
+if [ -n "$1" ];then version=$1
+else version=version00
+fi
 currentdir=`pwd`
 dirlay2=(touse tousp coule coulp breme bremp)
-if false;then
+
+echo check $version
+if true;then
   for i in `seq 0 5`
   do
     echo hadd ${dirlay2[i]}
