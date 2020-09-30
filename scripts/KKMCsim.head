@@ -1,5 +1,12 @@
 #include "$OFFLINEEVENTLOOPMGRROOT/share/OfflineEventLoopMgr_Option.txt"
 
+//*************job options for generator (KKMC)***************
+#include "$KKMCROOT/share/jobOptions_KKMC.txt"
+KKMC.CMSEnergy = 3.90;
+KKMC.BeamEnergySpread=0.0008;
+KKMC.NumberOfEventPrinted=1;
+KKMC.GenerateJPsi=true;
+
 //*************job options for EvtGen***************
 //#include "$BESEVTGENROOT/share/BesEvtGen.txt"
 #include "$MANUALGENERATORROOT/share/ManualGenerator.txt"

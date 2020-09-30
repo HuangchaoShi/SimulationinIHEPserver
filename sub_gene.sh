@@ -1,5 +1,5 @@
 if [ -n "$1" ];then version=$1
-else version=version00
+  else version=version00
 fi
 currentdir=`pwd`
 dirlay2=(touse tousp coule coulp breme bremp)

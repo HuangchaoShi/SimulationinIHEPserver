@@ -25,8 +25,9 @@ done
 #--------------------------------------
 #    make file in Generate
 #-------------------------------------
-nevt=(170000 170000 60000 60000 8300 8300)
-nLineinAEvt=3
+#nevt=(170000 170000 60000 60000 8300 8300)
+nevt=(45200 45200 60000 60000 5000 5000)
+nLineinAEvt=2
 for i in `seq 0 5`
 do
   cd ${currentdir}/${version}/Generate/${dirlay2[i]}

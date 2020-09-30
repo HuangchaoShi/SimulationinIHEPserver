@@ -7,7 +7,7 @@ dirlay2=(touse tousp coule coulp breme bremp)
 echo check $version
 for i in `seq 0 5`
 do
-  echo check ${dirlay2[i]}
+  echo check gene ${dirlay2[i]}
   let n=100
   cd ${currentdir}/${version}/Generate/${dirlay2[i]}
   for j in `seq 10`
