@@ -8,8 +8,6 @@ version1:m_pipeSCM=2
 version2:m_pipeSCM=1,加上QCM和延展管
 version2_1: m_pipeSCM=1,删去QCM和延展管
 version2_2: m_pipeSCM=1,加上QCM和延展管,将world z拓展到+-500cm
-version3:m_pipeSCM=0
 
-version4: 单粒子输入而不是用KKMC，拓展world的大小,只输入(-2.5,2.5)m以内的粒子
-
+version3: use new input package BeamBKGInput
 

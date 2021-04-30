@@ -1,5 +1,5 @@
 if [ -n "$1" ];then version=$1
-else version=version00
+else version=version3
 fi
 currentdir=`pwd`
 dirlay1=(Generate Run EMCRun Plot InputData)
@@ -26,7 +26,9 @@ done
 #    make file in Generate
 #-------------------------------------
 #nevt=(170000 170000 60000 60000 8300 8300)
-nevt=(45200 45200 60000 60000 5000 5000)
+#nevt=(45200 45200 60000 60000 5000 5000)
+#number for |z|<2.87m and scale = 0.1
+nevt=(38300 38300 46000 46000 4400 4400)
 nLineinAEvt=2
 for i in `seq 0 5`
 do
@@ -46,7 +48,7 @@ do
   let n--
   evtlast=`cat data_${n}.dat | wc -l`
   let evtlast=${evtlast}/${nLineinAEvt}
-  echo ${dirlay2[i]} ${evtlast}
+  #echo ${dirlay2[i]} ${evtlast}
 
   #-----make sim-----
   let n=100
